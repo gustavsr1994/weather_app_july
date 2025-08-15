@@ -23,6 +23,7 @@ class WeatherDatasource {
       var result = await dio.get("${urlAPI}forecast", queryParameters: request);
       return ForecastWeatherResponse.fromJson(result.data);
     } on DioException catch (e) {
+      print("Error: ${e.message}");
       throw Exception(e.message);
     }
   }
